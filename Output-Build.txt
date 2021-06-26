@@ -1,0 +1,4 @@
+﻿Build started...
+1>------ Build started: Project: Arrays, Configuration: Debug Win32 ------
+1>Arrays.vcxproj -> C:\Users\User\source\repos\DataTypes\Debug\Arrays.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
