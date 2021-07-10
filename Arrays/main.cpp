@@ -5,41 +5,59 @@ using namespace std;
 
 #define tab "\t"
 
+int g_a;	//Глобальная переменная, ее видят все функции, и ее может изменить любая функция
+			//Поэтому их использование не рекомендуется
+			//Поскольку не известно что в ней хранится
+			//g_ - Global (Hungarian notation - венгерская нотация)
+			//НО глобальные константы используются широко, так как изменить её никто не может
+
+
+const int ROWS = 5;
+const int COLS = 8;
+
 void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
 void FillRand(float arr[], const int n);
 void FillRand(char arr[], const int n);
 void FillRand(short arr[], const int n);
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
 void Print(float arr[], const int n);
 void Print(char arr[], const int n);
 void Print(short arr[], const int n);
+void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
 void PrintReverse(int arr[], const int n);
 void PrintReverse(double arr[], const int n);
 void PrintReverse(float arr[], const int n);
 void PrintReverse(char arr[], const int n);
 void PrintReverse(short arr[], const int n);
+
 int Sum(int arr[], const int n);
 double Sum(double arr[], const int n);
 float Sum(float arr[], const int n);
 char Sum(char arr[], const int n);
 short Sum(short arr[], const int n);
+
 double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
-float Avg(float arr[], const int n);
-char Avg(char arr[], const int n);
-short Avg(short arr[], const int n);
+double Avg(float arr[], const int n);
+double Avg(char arr[], const int n);
+double Avg(short arr[], const int n);
+
 int minValueIn(int arr[], const int n);
 double minValueIn(double arr[], const int n);
 float minValueIn(float arr[], const int n);
 char minValueIn(char arr[], const int n);
 short minValueIn(short arr[], const int n);
+
 int maxValueIn(int arr[], const int n);
-double manValueIn(double arr[], const int n);
-float manValueIn(float arr[], const int n);
-char manValueIn(char arr[], const int n);
-short manValueIn(short arr[], const int n);
+double maxValueIn(double arr[], const int n);
+float maxValueIn(float arr[], const int n);
+char maxValueIn(char arr[], const int n);
+short maxValueIn(short arr[], const int n);
 
 void main()
 {
@@ -89,6 +107,11 @@ void main()
 	cout << "Среднее арифметическое элементов массива: " << Avg(s_arr, n) << endl;
 	cout << "Минимальное значение в массиве:\t" << minValueIn(s_arr, n);
 	cout << "Максимальное значение в массиве:\t" << maxValueIn(arr, n);
+	cout << "\n===========================2D arrays ==========================";
+
+	int i_arr_2[ROWS][COLS];
+	FillRand(i_arr_2, ROWS, COLS);
+	Print(i_arr_2, ROWS, COLS);
 }
 
 //double, float, char, short.
@@ -130,6 +153,18 @@ void FillRand(short arr[], const int n)
 	for (int i = 0; i < n; i++)
 	{
 			arr[i] = short(rand()%100)/10;
+	}
+}
+
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	//Определяет, что делает функция.
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = rand() % 100;
+		}
 	}
 }
 
@@ -181,6 +216,18 @@ void Print(short arr[], const int n)
 
 	}
 	cout << endl;
+}
+
+void Print(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			cout << arr[i][j] << tab;
+		}
+		cout << endl;
+	}
 }
 
 void PrintReverse(int arr[], const int n)
@@ -288,17 +335,17 @@ double Avg(double arr[], const int n)
 	return (double)Sum(arr, n) / n;
 }
 
-float Avg(float arr[], const int n)
+double Avg(float arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
 }
 
-char Avg(char arr[], const int n)
+double Avg(char arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
 }
 
-short Avg(short arr[], const int n)
+double Avg(short arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
 }
