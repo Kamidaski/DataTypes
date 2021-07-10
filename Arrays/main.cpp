@@ -1,7 +1,20 @@
 ﻿#include<iostream>
 using namespace std;
 
-//double, float, char, short.
+/*
+-----------------------------------------------------------
+HomeWork:
+Написать функции:
+??? Input(???);			//Позволяет ввести значения элементов массива с клавиатуры;
+??? PrintReverse(???);	//Выводит массив на экран в обратном порядке - от последнего элемента к первому
+??? Sum(???);			//Возвращает сумму элементов массива
+??? Avg(???);			//Возвращает среднее арифметическое (Avarage) элементов массива
+??? minValueIn(???);	//Возвращает минимальное значение из массива
+??? maxValueIn(???);	//Возвращает максимальное значение из массива
+
+Все эти функции можно писать прямо здесь, в этом же проекте.
+-----------------------------------------------------------
+*/
 
 #define tab "\t"
 
@@ -114,13 +127,12 @@ void main()
 	Print(i_arr_2, ROWS, COLS);
 }
 
-//double, float, char, short.
 
 void FillRand(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-			arr[i] = rand()%100;
+		arr[i] = rand() % 100;
 	}
 }
 
@@ -128,7 +140,7 @@ void FillRand(double arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-			arr[i] = double(rand()%100)/10;
+		arr[i] = double(rand() % 100) / 10;
 	}
 }
 
@@ -136,7 +148,7 @@ void FillRand(float arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-			arr[i] = float(rand()%100)/10;
+		arr[i] = float(rand() % 100) / 10;
 	}
 }
 
@@ -144,7 +156,7 @@ void FillRand(char arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-			arr[i] = char(rand()%100)/10;
+		arr[i] = char(rand() % 100) / 10;
 	}
 }
 
@@ -152,7 +164,7 @@ void FillRand(short arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-			arr[i] = short(rand()%100)/10;
+		arr[i] = short(rand() % 100) / 10;
 	}
 }
 
