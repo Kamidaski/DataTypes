@@ -1,37 +1,45 @@
 ﻿#include<iostream>
 using namespace std;
 
-
-/*
------------------------------------------------------------
-HomeWork:
-Написать функции:
-??? Input(???);			//Позволяет ввести значения элементов массива с клавиатуры;
-??? PrintReverse(???);	//Выводит массив на экран в обратном порядке - от последнего элемента к первому
-??? Sum(???);			//Возвращает сумму элементов массива
-??? Avg(???);			//Возвращает среднее арифметическое элементов массива
-??? minValueIn(???);	//Возвращает минимальное значение из массива
-??? maxValueIn(???);	//Возвращает максимальное значение из массива
-
-Все эти функции можно писать прямо здесь, в этом же проекте.
------------------------------------------------------------
-*/
-
+//double, float, char, short.
 
 #define tab "\t"
 
 void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
+void FillRand(float arr[], const int n);
+void FillRand(char arr[], const int n);
+void FillRand(short arr[], const int n);
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
+void Print(float arr[], const int n);
+void Print(char arr[], const int n);
+void Print(short arr[], const int n);
 void PrintReverse(int arr[], const int n);
 void PrintReverse(double arr[], const int n);
+void PrintReverse(float arr[], const int n);
+void PrintReverse(char arr[], const int n);
+void PrintReverse(short arr[], const int n);
 int Sum(int arr[], const int n);
 double Sum(double arr[], const int n);
+float Sum(float arr[], const int n);
+char Sum(char arr[], const int n);
+short Sum(short arr[], const int n);
 double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
+float Avg(float arr[], const int n);
+char Avg(char arr[], const int n);
+short Avg(short arr[], const int n);
 int minValueIn(int arr[], const int n);
+double minValueIn(double arr[], const int n);
+float minValueIn(float arr[], const int n);
+char minValueIn(char arr[], const int n);
+short minValueIn(short arr[], const int n);
 int maxValueIn(int arr[], const int n);
+double manValueIn(double arr[], const int n);
+float manValueIn(float arr[], const int n);
+char manValueIn(char arr[], const int n);
+short manValueIn(short arr[], const int n);
 
 void main()
 {
@@ -52,8 +60,38 @@ void main()
 	PrintReverse(d_arr, n);
 	cout << "Сумма элементов массива: " << Sum(d_arr, n) << endl;
 	cout << "Среднее арифметическое элементов массива: " << Avg(d_arr, n) << endl;
+	cout << "Минимальное значение в массиве:\t" << minValueIn(d_arr, n);
+	cout << "Максимальное значение в массиве:\t" << maxValueIn(arr, n);
+
+	float f_arr[n]; //float array
+	FillRand(f_arr, n);
+	Print(f_arr, n);
+	PrintReverse(f_arr, n);
+	cout << "Сумма элементов массива: " << Sum(f_arr, n) << endl;
+	cout << "Среднее арифметическое элементов массива: " << Avg(f_arr, n) << endl;
+	cout << "Минимальное значение в массиве:\t" << minValueIn(f_arr, n);
+	cout << "Максимальное значение в массиве:\t" << maxValueIn(arr, n);
+
+	char c_arr[n]; //char array
+	FillRand(c_arr, n);
+	Print(c_arr, n);
+	PrintReverse(c_arr, n);
+	cout << "Сумма элементов массива: " << Sum(c_arr, n) << endl;
+	cout << "Среднее арифметическое элементов массива: " << Avg(c_arr, n) << endl;
+	cout << "Минимальное значение в массиве:\t" << minValueIn(c_arr, n);
+	cout << "Максимальное значение в массиве:\t" << maxValueIn(arr, n);
+
+	short s_arr[n]; //short array
+	FillRand(s_arr, n);
+	Print(s_arr, n);
+	PrintReverse(s_arr, n);
+	cout << "Сумма элементов массива: " << Sum(s_arr, n) << endl;
+	cout << "Среднее арифметическое элементов массива: " << Avg(s_arr, n) << endl;
+	cout << "Минимальное значение в массиве:\t" << minValueIn(s_arr, n);
+	cout << "Максимальное значение в массиве:\t" << maxValueIn(arr, n);
 }
 
+//double, float, char, short.
 
 void FillRand(int arr[], const int n)
 {
@@ -68,6 +106,30 @@ void FillRand(double arr[], const int n)
 	for (int i = 0; i < n; i++)
 	{
 			arr[i] = double(rand()%100)/10;
+	}
+}
+
+void FillRand(float arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+			arr[i] = float(rand()%100)/10;
+	}
+}
+
+void FillRand(char arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+			arr[i] = char(rand()%100)/10;
+	}
+}
+
+void FillRand(short arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+			arr[i] = short(rand()%100)/10;
 	}
 }
 
@@ -91,6 +153,36 @@ void Print(double arr[], const int n)
 	cout << endl;
 }
 
+void Print(float arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << tab;
+
+	}
+	cout << endl;
+}
+
+void Print(char arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << tab;
+
+	}
+	cout << endl;
+}
+
+void Print(short arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << tab;
+
+	}
+	cout << endl;
+}
+
 void PrintReverse(int arr[], const int n)
 {
 	for (int i = n - 1; i >= 0; i--)
@@ -101,6 +193,33 @@ void PrintReverse(int arr[], const int n)
 }
 
 void PrintReverse(double arr[], const int n)
+{
+	for (int i = n - 1; i >= 0; i--)
+	{
+		cout << arr[i] << tab;
+	}
+	cout << endl;
+}
+
+void PrintReverse(float arr[], const int n)
+{
+	for (int i = n - 1; i >= 0; i--)
+	{
+		cout << arr[i] << tab;
+	}
+	cout << endl;
+}
+
+void PrintReverse(char arr[], const int n)
+{
+	for (int i = n - 1; i >= 0; i--)
+	{
+		cout << arr[i] << tab;
+	}
+	cout << endl;
+}
+
+void PrintReverse(short arr[], const int n)
 {
 	for (int i = n - 1; i >= 0; i--)
 	{
@@ -129,6 +248,36 @@ double Sum(double arr[], const int n)
 	return sum;
 }
 
+float Sum(float arr[], const int n)
+{
+	float sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+
+char Sum(char arr[], const int n)
+{
+	char sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+
+short Sum(short arr[], const int n)
+{
+	short sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+
 double Avg(int arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
@@ -139,9 +288,64 @@ double Avg(double arr[], const int n)
 	return (double)Sum(arr, n) / n;
 }
 
+float Avg(float arr[], const int n)
+{
+	return (double)Sum(arr, n) / n;
+}
+
+char Avg(char arr[], const int n)
+{
+	return (double)Sum(arr, n) / n;
+}
+
+short Avg(short arr[], const int n)
+{
+	return (double)Sum(arr, n) / n;
+}
+
 int minValueIn(int arr[], const int n)
 {
 	int min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+
+double minValueIn(double arr[], const int n)
+{
+	double min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+
+float minValueIn(float arr[], const int n)
+{
+	float min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+
+char minValueIn(char arr[], const int n)
+{
+	char min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+
+short minValueIn(short arr[], const int n)
+{
+	short min = arr[0];
 	for (int i = 0; i < n; i++)
 	{
 		if (arr[i] < min)min = arr[i];
@@ -157,4 +361,44 @@ int maxValueIn(int arr[], const int n)
 		if (arr[i] > max)max = arr[i];
 	}
 	return max;
+}
+
+double maxValueIn(double arr[], const int n)
+{
+	double min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+
+float maxValueIn(float arr[], const int n)
+{
+	float min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+
+char maxValueIn(char arr[], const int n)
+{
+	char min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+
+short maxValueIn(short arr[], const int n)
+{
+	short min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
 }
