@@ -14,6 +14,11 @@ HomeWork:
 
 Все эти функции можно писать прямо здесь, в этом же проекте.
 -----------------------------------------------------------
+
+1. Перегрузить функцию FillRand() для двумерных массивов типа int, double, float, char, short;
+2. Перегрузить шаблонные функции Sum(), Avg(), minValueIn(), maxValueIn() для двумерных массивов;
+3. Написать шаблонную функцию Sort(), которая сортирует массив любого типа;
+4. Создать ветку templated_split, и в этой ветке вынести шаблонные функции в отдельные файлы;
 */
 
 #define tab "\t"
@@ -34,6 +39,10 @@ void FillRand(float arr[], const int n);
 void FillRand(char arr[], const int n);
 void FillRand(short arr[], const int n);
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS);
+void FillRand(float arr[ROWS][COLS], const int ROWS, const int COLS);
+void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS);
+void FillRand(short arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
@@ -168,6 +177,7 @@ void FillRand(short arr[], const int n)
 	}
 }
 
+
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	//Определяет, что делает функция.
@@ -179,6 +189,51 @@ void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
 		}
 	}
 }
+
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = double(rand() % 100) / 10;
+		}
+	} 
+}
+
+void FillRand(float arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = float(rand() % 100) / 10;
+		}
+	}
+}
+
+void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = char(rand() % 100) / 10;
+		}
+	}
+}
+
+void FillRand(short arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = short(rand() % 100) / 10;
+		}
+	}
+}
+
 
 void Print(int arr[], const int n)
 {
@@ -230,6 +285,7 @@ void Print(short arr[], const int n)
 	cout << endl;
 }
 
+
 void Print(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)
@@ -241,6 +297,7 @@ void Print(int arr[ROWS][COLS], const int ROWS, const int COLS)
 		cout << endl;
 	}
 }
+
 
 void PrintReverse(int arr[], const int n)
 {
@@ -286,6 +343,7 @@ void PrintReverse(short arr[], const int n)
 	}
 	cout << endl;
 }
+
 
 int Sum(int arr[], const int n)
 {
@@ -337,6 +395,7 @@ short Sum(short arr[], const int n)
 	return sum;
 }
 
+
 double Avg(int arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
@@ -361,6 +420,7 @@ double Avg(short arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
 }
+
 
 int minValueIn(int arr[], const int n)
 {
@@ -411,6 +471,7 @@ short minValueIn(short arr[], const int n)
 	}
 	return min;
 }
+
 
 int maxValueIn(int arr[], const int n)
 {
