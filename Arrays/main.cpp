@@ -15,8 +15,8 @@ HomeWork:
 Все эти функции можно писать прямо здесь, в этом же проекте.
 -----------------------------------------------------------
 
-1. Перегрузить функцию FillRand() для двумерных массивов типа int, double, float, char, short;
-2. Перегрузить шаблонные функции Sum(), Avg(), minValueIn(), maxValueIn() для двумерных массивов;
+1. Перегрузить функцию FillRand() для двумерных массивов типа int, double, float, char, short;+
+2. Перегрузить шаблонные функции Sum(), Avg(), minValueIn(), maxValueIn() для двумерных массивов;+
 3. Написать шаблонную функцию Sort(), которая сортирует массив любого типа;
 4. Создать ветку templated_split, и в этой ветке вынести шаблонные функции в отдельные файлы;
 */
@@ -32,6 +32,28 @@ int g_a;	//Глобальная переменная, ее видят все ф�
 
 const int ROWS = 5;
 const int COLS = 8;
+
+//T – имя шаблонного типа
+template<typename T>
+T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS);
+template<typename T>
+T Sum(T arr[], const int n);
+
+template<typename T>
+double Avg(T arr[ROWS][COLS], const int ROWS, const int COLS);
+template<typename T>
+double Avg(T arr[], const int n);
+
+template<typename T>
+T minValueIn(T arr[ROWS][COLS], const int ROWS, const int COLS);
+template<typename T>
+T minValueIn(T arr[], const int n);
+
+template<typename T>
+T maxValueIn(T arr[ROWS][COLS], const int ROWS, const int COLS);
+template<typename T>
+T maxValueIn(T arr[], const int n);
+
 
 void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
@@ -521,4 +543,93 @@ short maxValueIn(short arr[], const int n)
 		if (arr[i] < min)min = arr[i];
 	}
 	return min;
+}
+
+//Statistics
+
+template<typename T>
+T Sum(T arr[], const int n)//возвращаемое значение шаблонного типа
+{
+	T sum = 0; //Локальная переменная шаблонного типа
+	for (int i = 0; i < n; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+
+template<typename T> //этот
+T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	T sum = 0; 
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			sum += arr[i][j];
+		}
+	}
+	return sum;
+}
+
+template<typename T> //этот
+double Avg(T arr[], const int n)
+{
+	return (double)Sum(arr, n) / n;
+}
+
+template<typename T>
+double Avg(T arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	return (double)Sum(arr, ROWS, COLS) / ROWS + COLS;
+}
+
+template<typename T>
+T minValueIn(T arr[], const int n)
+{
+	T min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+
+template<typename T> //этот
+T minValueIn(T arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	T min = arr[0];
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			if (arr[i][j] < min)min = arr[i][j];
+		}
+
+	}
+	return min;
+}
+
+template<typename T>
+T maxValueIn(T arr[], const int n)
+{
+	T max = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] > max)max = arr[i];
+	}
+	return max;
+
+}template<typename T> //этот
+T maxValueIn(T arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	T max = arr[0];
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			if (arr[i][j] > max)max = arr[i][j];
+		}
+	}
+	return max;
 }
